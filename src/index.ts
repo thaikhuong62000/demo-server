@@ -23,12 +23,12 @@ io.on("connection", (socket) => {
 
   socket.on("chat", async ({ id, message }) => {
     console.log("Chat", id, message);
-    socket.to(`${id}`).emit(message);
+    socket.to(`${id}`).emit("chat", message);
   });
 
   socket.on("invite", async ({ id, message }) => {
     console.log("Invite", id, message);
-    socket.to(`${id}`).emit(message);
+    socket.to(`${id}`).emit("invite", message);
   });
 });
 
